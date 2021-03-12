@@ -24,7 +24,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.motoreapi.demo.model.APIEntity;
 import com.motoreapi.demo.service.APIService;
 
- 
+@Inject
+Logger logger;
 @RestController
 @RequestMapping("/api")
 public class APIController
@@ -41,11 +42,18 @@ public class APIController
     	String object = api.getResultSet(name);
     	return object;
     }
+    
+    
     @GetMapping("/test/param") 
-    public String getParam(@RequestParam String data)
+    public String getParam(@RequestParam Map<String,String> allParams)
     {
-    	return data;
+    	
+    	return "Parameters are " +  allParams.values();
+    	
     }
+    
+    
+    
     @PostMapping("/test/write")
     public String postPoint(@RequestBody String newEmployee) throws JsonParseException, JsonMappingException, IOException
     {
