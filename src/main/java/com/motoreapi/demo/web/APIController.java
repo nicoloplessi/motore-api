@@ -24,8 +24,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.motoreapi.demo.model.APIEntity;
 import com.motoreapi.demo.service.APIService;
 
-@Inject
-Logger logger;
+
 @RestController
 @RequestMapping("/api")
 public class APIController
@@ -48,7 +47,7 @@ public class APIController
     public String getParam(@RequestParam Map<String,String> allParams)
     {
     	
-    	return "Parameters are " +  allParams.values();
+    	return api.ElaboraParm(allParams);
     	
     }
     
