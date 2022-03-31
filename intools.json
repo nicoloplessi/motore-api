@@ -1,0 +1,50 @@
+{
+    "groups": [
+        {
+            "name": "group_name",
+            "dashboards": [
+                {
+                    "name": "dashboard_name",
+                    "connectors": [
+                        {
+                            "id": "5cc0167edb069e0008ed277f",
+                            "name": "Connector Sonarqube",
+                            "slug_model": "connector-sonar",
+                            "refresh": "10",
+                            "parameters": {
+                                "project": "${SONARQUBE_PROJECT_KEY}",
+                                "token": "${SONARQUBE_API_TOKEN}",
+                                "url": "${SONARQUBE_URL}"
+                            }
+                        },
+                        {
+                            "id": "5cc0167edb069e0008ed277e",
+                            "name": "Gitlab Trafficlight",
+                            "slug_model": "connector-gitlab-trafficLight",
+                            "refresh": "10",
+                            "parameters": {
+                                "highlighting": "${HIGHLIGHTING}",
+                                "project-id": "${CI_PROJECT_ID}",
+                                "token": "${GITLAB_PRIVATE_TOKEN}",
+                                "url": "${GITLAB_URL}",
+                                "refs": "${CI_COMMIT_REF_NAME}"
+                            }
+                        }
+                    ],
+                    "boxes": [
+                        {
+                            "border_color": "Red",
+                            "title": "Qualimetry Sonarqube",
+                            "connector_id": "5cc0167edb069e0008ed277f"
+                        },
+                        {
+                            "border_color": "White",
+                            "title": "Gitlab Trafficlight",
+                            "connector_id": "5cc0167edb069e0008ed277e"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

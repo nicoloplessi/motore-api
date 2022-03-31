@@ -8,7 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="API")
+@Table(name="API", schema = "TERNA_APP_DATA")
+
 public class APIEntity {
 
     @Id
@@ -18,14 +19,17 @@ public class APIEntity {
     @Column(name="Api")
     private String api;
     
-    @Column(name="Query")
+    @Column(name="parameter")
+    private String parameter;
+    
+    @Column(name="query")
     private String query;
     
-    @Column(name="Endpoint")
-    private String endpoint;
-    
-    @Column(name="name")
-    private String name;
+    @Column(name="filter")
+    private String filter;
+   
+    @Column(name="mock")
+    private String mock;
 
 	public Long getId() {
 		return id;
@@ -43,6 +47,14 @@ public class APIEntity {
 		this.api = api;
 	}
 
+	public String getParameter() {
+		return parameter;
+	}
+
+	public void setParameter(String parameter) {
+		this.parameter = parameter;
+	}
+
 	public String getQuery() {
 		return query;
 	}
@@ -51,27 +63,31 @@ public class APIEntity {
 		this.query = query;
 	}
 
-	public String getEndpoint() {
-		return endpoint;
+	public String getFilter() {
+		return filter;
 	}
 
-	public void setEndpoint(String endpoint) {
-		this.endpoint = endpoint;
+	public void setFilter(String filter) {
+		this.filter = filter;
 	}
 
-	public String getName() {
-		return name;
+	public String getMock() {
+		return mock;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setMock(String mock) {
+		this.mock = mock;
 	}
 
 	@Override
 	public String toString() {
-		return "APIEntity [id=" + id + ", api=" + api + ", query=" + query + ", endpoint=" + endpoint + ", name=" + name
-				+ "]";
+		return "APIEntity [id=" + id + ", api=" + api + ", parameter=" + parameter + ", query=" + query + ", filter="
+				+ filter + ", mock=" + mock + "]";
 	}
+
+	
+    
+	
     
     
     
